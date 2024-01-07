@@ -11,7 +11,7 @@ const fetchShowList= async(pageNumber = 0) => {
       return data;
     } catch (error) {
       console.error(error);
-      // Handle errors as needed
+      
       return null;
     }
   }
