@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 import './Container.css';
 import Navigation from '../../Components/Navigation/Navigation';
 import { Outlet } from 'react-router-dom';
+
+export const modeContext = createContext();
 
 const Container = () => {
 
@@ -19,10 +21,13 @@ const Container = () => {
     }
 
   return (
-    <div className={`Container ${mode}`}>
+    <modeContext.Provider value={modeColor}>
+        <div className={`Container ${mode}`}>
         <Navigation toggleMode={toggleMode} modeColor={modeColor}/>
         <Outlet modeColor={modeColor}/>
-    </div>
+        </div>
+        
+    </modeContext.Provider>
   );
 }
 
